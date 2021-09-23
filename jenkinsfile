@@ -1,0 +1,31 @@
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage('BUILD') {
+           steps {
+               sh 'echo this is my first stage in pipeline job'
+               sh 'ls -lrt'
+               sh 'sleep 10'
+           }
+          }
+
+        stage('TEST') {
+            steps {
+                sh '''
+                    sleep 5
+                    du -h
+                   '''
+            }
+           }
+
+
+        stage('DEPLOY') {
+            steps {
+                sh '''
+                    sleep 5
+                    du -h
+                   '''
+            }
+           }
+         }
+}
